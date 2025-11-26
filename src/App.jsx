@@ -1,8 +1,8 @@
 import { Routes, Route, Link } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 import { useState } from "react";
-import List from '../src/pages/List'; 
-import Add from '../src/pages/Add';
+import Add from "../src/pages/Add";
+import ListPage from "../src/pages/List";
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -46,9 +46,9 @@ function App() {
       <div className="max-w-6xl mx-auto mt-10 px-4 text-center">
         <h1 className="text-4xl font-bold mb-4">Chào mừng đến với WEB501</h1>
         <p className="text-lg text-gray-600">Ứng dụng quản lý dữ liệu</p>
-
+        {/* Routing List */}
         <Routes>
-          <Route path="/list" element={<List />} />
+          <Route path="/list" element={<ListPage />} />
           <Route path="/add" element={<Add />} />
         </Routes>
       </div>
