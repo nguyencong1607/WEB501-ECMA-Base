@@ -16,7 +16,7 @@ function ListPage() {
     };
     fetchTours();
   }, []);
-  
+
   const handleDelete = async (id) => {
     if (!confirm("bạn cóc chắc chắn muốn xóa k")) return;
     try {
@@ -33,22 +33,22 @@ function ListPage() {
 
       <div className="overflow-x-auto">
         <table className="w-full border border-gray-300 rounded-lg">
-          <thead className="bg-gray-100">
+          <thead className="bg-gray-100  text-blue-400">
             <tr>
-              <th className="px-4 py-2 border border-gray-300 text-left">ID</th>
-              <th className="px-4 py-2 border border-gray-300 text-left">
+              <th className="px-4 py-2 border border-blue-300 text-left  text-blue-400">ID</th>
+              <th className="px-4 py-2 border border-blue-300 text-left text-blue-400">
                 Tên Tour
               </th>
-              <th className="px-4 py-2 border border-gray-300 text-left">
+              <th className="px-4 py-2 border border-blue-300 text-left  text-blue-400">
                 Giá
               </th>
-              <th className="px-4 py-2 border border-gray-300 text-left">
+              <th className="px-4 py-2 border border-blue-300 text-left  text-blue-400">
                 Thời gian
               </th>
               {/* <th className="px-4 py-2 border border-gray-300 text-left">
                 Trạng thái
               </th> */}
-              <th className="px-4 py-2 border border-gray-300 text-left">
+              <th className="px-4 py-2 border border-blue-300 text-left  text-blue-400">
                 Hành động
               </th>
             </tr>
