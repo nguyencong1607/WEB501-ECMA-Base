@@ -1,7 +1,7 @@
 {
   "tours": [
     {
-      "id": 2,
+      "id": "2",
       "name": "Hạ Long - Cát Bà 2N1D",
       "destination": "Hạ Long",
       "duration": "2 ngày 1 đêm",
@@ -11,7 +11,7 @@
       "available": 20
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Đà Lạt 4N3D",
       "destination": "Đà Lạt",
       "duration": "4 ngày 3 đêm",
@@ -19,23 +19,35 @@
       "image": "https://picsum.photos/400/300?random=3",
       "description": "Thành phố ngàn hoa với khí hậu mát mẻ quanh năm",
       "available": 10
+    },
+    {
+      "id": "c107",
+      "name": "Nguyễn Văn Công",
+      "destination": " bac ninh",
+      "duration": "4 ngày 3 đêm",
+      "price": "01212",
+      "image": "",
+      "description": "không có",
+      "available": "3",
+      "category": "tour nội địa",
+      "active": true
     }
   ],
   "destinations": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Sapa",
       "icon": "🏔️",
       "description": "Thiên đường núi rừng Tây Bắc"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Hạ Long",
       "icon": "🌊",
       "description": "Kỳ quan thiên nhiên thế giới"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Đà Lạt",
       "icon": "🌺",
       "description": "Thành phố ngàn hoa"
