@@ -22,7 +22,7 @@
     },
     {
       "id": "c107",
-      "name": "Nguyễn Văn Công",
+      "name": "Nguyễn Văn Ccc",
       "destination": " bac ninh",
       "duration": "4 ngày 3 đêm",
       "price": "01212",
@@ -31,6 +31,18 @@
       "available": "3",
       "category": "tour nội địa",
       "active": true
+    },
+    {
+      "name": "Mèo Anh lông dài",
+      "destination": " bac ninh",
+      "duration": "4 ngày 3 đêm",
+      "price": "3",
+      "image": "https://www.pinterest.com/pin/806074033312228545/",
+      "description": "2121",
+      "available": "4",
+      "category": "tour nội địa",
+      "active": true,
+      "id": "2fq3WiS"
     }
   ],
   "destinations": [
@@ -51,6 +63,18 @@
       "name": "Đà Lạt",
       "icon": "🌺",
       "description": "Thành phố ngàn hoa"
+    }
+  ],
+  "users": [
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$yz5YikgvmOaq64KRbN5fauDMzHr49P3YxDCBt06nta5osvPmVohaG",
+      "id": 1
+    },
+    {
+      "email": "cong01bll@gmail.com",
+      "password": "$2a$10$CU6UJgR0p9Z.sFQjAN8fd.DgIHZWQ6XvWfd3UpJZxRHnxaBbyYiWC",
+      "id": 2
     }
   ]
 }

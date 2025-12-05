@@ -4,6 +4,9 @@ import { useState } from "react";
 import AddPage from "../src/pages/Add";
 import ListPage from "../src/pages/List";
 import EditPage from "../src/pages/Edit";
+import RegisterPage from "./pages/Register";
+import LoginPage from "./pages/Login";
+import HomePage from "./pages/Home";
 
 function App() {
   const [open, setOpen] = useState(false);
@@ -20,7 +23,7 @@ function App() {
 
           {/* Menu desktop */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="#" className="hover:text-gray-200">
+            <Link to="/home" className="hover:text-gray-200">
               Trang chủ
             </Link>
             <Link to="/list" className="hover:text-gray-200">
@@ -33,10 +36,10 @@ function App() {
 
           {/* Right menu desktop */}
           <div className="hidden md:flex items-center space-x-6">
-            <a href="#" className="hover:text-gray-200">
+            <a href="/login" className="hover:text-gray-200">
               Đăng nhập
             </a>
-            <a href="#" className="hover:text-gray-200">
+            <a href="/register" className="hover:text-gray-200">
               Đăng ký
             </a>
           </div>
@@ -44,13 +47,17 @@ function App() {
       </nav>
 
       {/* MAIN CONTENT */}
-      <div className="max-w-6xl mx-auto mt-10 px-4 text-center">
+      <div className="max-w-6xl mx-auto mt-10 px-4 text-center  bg-blue-100">
         <h1 className="text-4xl font-bold mb-4">Chào mừng đến với WEB501</h1>
         {/* Routing List */}
+
         <Routes>
           <Route path="/list" element={<ListPage />} />
           <Route path="/add" element={<AddPage />} />
-          <Route path="/edit" element={<EditPage />} />
+          <Route path="/edit/:id" element={<EditPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/home" element={<HomePage />} />
         </Routes>
       </div>
       <Toaster />

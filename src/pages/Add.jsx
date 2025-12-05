@@ -15,9 +15,9 @@ function AddPage() {
     active: true,
   });
 
-
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
+
     const newValue = type === "checkbox" ? checked : value;
 
     setNewTour((prev) => ({
@@ -30,10 +30,9 @@ function AddPage() {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:3001/tours", newTour);
+      await axios.post("http://localhost:3000/tours", newTour);
       toast.success("Thêm tour thành công!");
 
-  
       setNewTour({
         name: "",
         destination: "",
@@ -56,14 +55,9 @@ function AddPage() {
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-       
           <div>
-            <label
-              htmlFor="name"
-              className="block font-medium mb-1 text-gray-700"
-            >
-              Tên Tour:
-            </label>
+            <label htmlFor="name"
+              className="block font-medium mb-1 text-gray-700">Tên Tour:</label>
             <input
               name="name"
               value={newTour.name}
@@ -74,7 +68,6 @@ function AddPage() {
               className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500"
             />
           </div>
-
 
           <div>
             <label
@@ -112,7 +105,6 @@ function AddPage() {
             />
           </div>
 
-         
           <div>
             <label
               htmlFor="price"
@@ -132,7 +124,6 @@ function AddPage() {
             />
           </div>
 
-         
           <div>
             <label
               htmlFor="available"
@@ -152,7 +143,6 @@ function AddPage() {
             />
           </div>
 
-         
           <div>
             <label
               htmlFor="image"
@@ -164,14 +154,13 @@ function AddPage() {
               name="image"
               value={newTour.image}
               onChange={handleInputChange}
-              type="url"
+              type="text"
               id="image"
               className="w-full border rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-500"
             />
           </div>
         </div>
 
-        
         <div>
           <label
             htmlFor="description"
@@ -190,7 +179,6 @@ function AddPage() {
           ></textarea>
         </div>
 
-        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-end">
           <div>
             <label
@@ -211,6 +199,7 @@ function AddPage() {
             </select>
           </div>
 
+          {/* Active Checkbox */}
           <div className="flex items-center space-x-2">
             <input
               name="active"
@@ -226,7 +215,7 @@ function AddPage() {
           </div>
         </div>
 
-        {/* Submit */}
+        {/* === NÚT SUBMIT === */}
         <button
           type="submit"
           className="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition w-full font-medium"

@@ -8,7 +8,7 @@ function ListPage() {
   useEffect(() => {
     const fetchTours = async () => {
       try {
-        const { data } = await axios.get("http://localhost:3001/tours");
+        const { data } = await axios.get("http://localhost:3000/tours");
         setTours(data);
       } catch (error) {
         toast.error("Không thể tải:", error);
@@ -18,9 +18,9 @@ function ListPage() {
   }, []);
 
   const handleDelete = async (id) => {
-    if (!confirm("bạn cóc chắc chắn muốn xóa k")) return;
+    if (!confirm("bạn có chắc chắn muốn xóa k")) return;
     try {
-      await axios.delete(`http://localhost:3001/tours/${id}`);
+      await axios.delete(`http://localhost:3000/tours/${id}`);
       setTours(tours.filter((tour) => tour.id !== id));
     } catch (err) {
       toast.error("Không thể tải:", error);
@@ -40,6 +40,9 @@ function ListPage() {
                 Tên Tour
               </th>
               <th className="px-4 py-2 border border-blue-300 text-left">
+                Hình ảnh
+              </th>
+              <th className="px-4 py-2 border border-blue-300 text-left">
                 Điểm đến
               </th>
               <th className="px-4 py-2 border border-blue-300 text-left">
@@ -50,6 +53,9 @@ function ListPage() {
               </th>
               <th className="px-4 py-2 border border-blue-300 text-left">
                 Hạng mục
+              </th>
+              <th className="px-4 py-2 border border-blue-300 text-left">
+                Chỗ còn lại
               </th>
               <th className="px-4 py-2 border border-blue-300 text-left">
                 Trạng thái
@@ -70,6 +76,14 @@ function ListPage() {
                 </td>
 
                 <td className="px-4 py-2 border border-gray-300">
+                  <img
+                    src={tour.image}
+                    alt={tour.name}
+                    className="w-20 h-14 object-cover rounded"
+                  />
+                </td>
+
+                <td className="px-4 py-2 border border-gray-300">
                   {tour.destination}
                 </td>
 
@@ -83,6 +97,20 @@ function ListPage() {
 
                 <td className="px-4 py-2 border border-gray-300">
                   {tour.category}
+                </td>
+
+                <td className="px-4 py-2 border border-gray-300">
+                  <span
+                    className={`px-2 py-1 rounded text-sm font-semibold ${
+                      tour.available > 5
+                        ? "bg-green-100 text-green-700"
+                        : tour.available > 0
+                        ? "bg-yellow-100 text-yellow-700"
+                        : "bg-red-100 text-red-700"
+                    }`}
+                  >
+                    {tour.available > 0 ? `${tour.available} chỗ` : "Hết chỗ"}
+                  </span>
                 </td>
 
                 <td className="px-4 py-2 border border-gray-300">
@@ -117,7 +145,10 @@ function ListPage() {
 
             {tours.length === 0 && (
               <tr>
-                <td colSpan="8" className="px-4 py-4 text-center text-gray-500">
+                <td
+                  colSpan="10"
+                  className="px-4 py-4 text-center text-gray-500"
+                >
                   Không có tour nào trong danh sách.
                 </td>
               </tr>

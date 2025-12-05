@@ -65,7 +65,7 @@ function Layout() {
           </div>
         </div>
 
-        {/* MOBILE MENU */}
+        {/* MOBILE MENU
         {open && (
           <div className="md:hidden bg-gray-800 border-t border-gray-700">
             <div className="px-4 py-3 space-y-2">
@@ -83,13 +83,14 @@ function Layout() {
               </Link>
             </div>
           </div>
-        )}
+        )} */}
       </nav>
 
       {/* CONTENT */}
       <div className="max-w-6xl mx-auto mt-6 px-4">
         <Outlet />
       </div>
+        
     </div>
   );
 }
