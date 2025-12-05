@@ -14,6 +14,66 @@ function AddPage() {
     category: "tour nội địa",
     active: true,
   });
+  const validateData = () => {
+    let message = "";
+
+    if (!name) {
+      return "Tên tour là bắt buộc";
+    }
+    if (name.length < 5 || name.length > 100) {
+      return "Tên tour phải từ 5 - 100 ký tự";
+    }
+
+    if (!destination) {
+      return "Điểm đến là bắt buộc";
+    }
+    if (destination.length < 2 || destination.length > 50) {
+      return "Điểm đến phải từ 2 - 50 ký tự";
+    }
+
+    if (!duration) {
+      return "Thời lượng tour là bắt buộc";
+    }
+
+    if (!price) {
+      return "Giá tour là bắt buộc";
+    }
+    if (Number(price) <= 0) {
+      return "Giá tour phải lớn hơn 0";
+    }
+
+    const urlRegex = /^(https?:\/\/)[\w\-]+(\.[\w\-]+)+[/#?]?.*$/;
+    if (!image) {
+      return "Ảnh là bắt buộc";
+    }
+    if (!urlRegex.test(image)) {
+      return "URL ảnh không hợp lệ";
+    }
+
+    if (!description) {
+      return "Mô tả là bắt buộc";
+    }
+    if (description.length < 10 || description.length > 1000) {
+      return "Mô tả phải từ 10 - 1000 ký tự";
+    }
+
+    if (available === "" || available == null) {
+      return "Số chỗ còn lại là bắt buộc";
+    }
+    if (Number(available) < 0) {
+      return "Số chỗ phải ≥ 0";
+    }
+
+    if (!type || !["tour nội địa", "tour quốc tế"].includes(type)) {
+      return "Loại tour không hợp lệ";
+    }
+
+    if (typeof active !== "boolean") {
+      return "Giá trị active không hợp lệ";
+    }
+
+    return "";
+  };
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -28,6 +88,11 @@ function AddPage() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const message = validateData();
+    if (message) {
+      toast.error(message);
+      return;
+    }
 
     try {
       await axios.post("http://localhost:3000/tours", newTour);
@@ -56,8 +121,12 @@ function AddPage() {
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label htmlFor="name"
-              className="block font-medium mb-1 text-gray-700">Tên Tour:</label>
+            <label
+              htmlFor="name"
+              className="block font-medium mb-1 text-gray-700"
+            >
+              Tên Tour:
+            </label>
             <input
               name="name"
               value={newTour.name}

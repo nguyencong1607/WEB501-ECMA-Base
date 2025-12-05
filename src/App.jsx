@@ -16,12 +16,10 @@ function App() {
       {/* HEADER - Navbar Tailwind */}
       <nav className="bg-blue-600 text-white shadow">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-          {/* Brand */}
           <Link to="#" className="text-xl font-semibold">
-            <strong>WEB501 App</strong>
+            <strong>Web Du Lịch</strong>
           </Link>
 
-          {/* Menu desktop */}
           <div className="hidden md:flex items-center space-x-8">
             <Link to="/home" className="hover:text-gray-200">
               Trang chủ
@@ -33,8 +31,21 @@ function App() {
               Thêm mới
             </Link>
           </div>
-
-          {/* Right menu desktop */}
+          <div className="hidden md:flex items-center space-x-2 mx-6">
+            <input
+              type="text"
+              placeholder="Tìm kiếm tour..."
+              value={keyword}
+              onChange={(e) => setKeyword(e.target.value)}
+              className="px-3 py-1 rounded-lg text-black focus:outline-none"
+            />
+            <button
+              className="bg-white text-blue-600 px-3 py-1 rounded-lg hover:bg-gray-200"
+              onClick={() => handleSearch()}
+            >
+              Tìm
+            </button>
+          </div>
           <div className="hidden md:flex items-center space-x-6">
             <a href="/login" className="hover:text-gray-200">
               Đăng nhập
