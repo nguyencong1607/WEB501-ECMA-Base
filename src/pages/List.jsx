@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 function ListPage() {
   const [tours, setTours] = useState([]);
-  // const [keyword, setKeyword] = useState("");
+  const [keyword, setKeyword] = useState("");
 
   useEffect(() => {
     const fetchTours = async () => {
@@ -27,10 +27,28 @@ function ListPage() {
       toast.error("Không thể tải:", error);
     }
   };
+  const handleSearch = () => {
+    if (keyword) {
+      const data = tours.filter((tour) =>
+        tour.name.toLowerCase().includes(keyword.toLocaleLowerCase())
+      );
+      setTours(data);
+    }
+  };
 
   return (
     <div className="p-6">
       <h1 className="text-2xl font-semibold mb-6">Danh sách Tours</h1>
+      <div className="my-2 flex">
+        <input
+          value={keyword}
+          onChange={(e) => setKeyword(e.target.value)}
+          type="text"
+          id="text"
+          className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <button onClick={handleSearch}>Tìm kiếm</button>
+      </div>
 
       <div className="overflow-x-auto">
         <table className="w-full border border-gray-300 rounded-lg">

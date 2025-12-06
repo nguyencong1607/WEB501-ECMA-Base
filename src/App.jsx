@@ -31,21 +31,6 @@ function App() {
               Thêm mới
             </Link>
           </div>
-          <div className="hidden md:flex items-center space-x-2 mx-6">
-            <input
-              type="text"
-              placeholder="Tìm kiếm tour..."
-              value={keyword}
-              onChange={(e) => setKeyword(e.target.value)}
-              className="px-3 py-1 rounded-lg text-black focus:outline-none"
-            />
-            <button
-              className="bg-white text-blue-600 px-3 py-1 rounded-lg hover:bg-gray-200"
-              onClick={() => handleSearch()}
-            >
-              Tìm
-            </button>
-          </div>
           <div className="hidden md:flex items-center space-x-6">
             <a href="/login" className="hover:text-gray-200">
               Đăng nhập
